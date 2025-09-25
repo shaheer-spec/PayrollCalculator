@@ -17,6 +17,15 @@ public class PayrollCalculator {
 
         float grossPay = hoursWorked * payRate;
 
-        System.out.println("Name: " + name + "\nGross Pay: $" + grossPay);
+        if (hoursWorked > 40) {
+            float overTimeHours = hoursWorked - 40;
+            double overTimePayRate = payRate * 1.5;
+            double overtimeGrossPay = overTimeHours * overTimePayRate;
+            double finalOvertimeGrossPay = overtimeGrossPay + (40 * payRate);
+            System.out.println("Name: " + name + "\nGross Pay: $" + finalOvertimeGrossPay);
+        } else {
+            System.out.println("Name: " + name + "\nGross Pay: $" + grossPay);
+        }
+
     }
 }
